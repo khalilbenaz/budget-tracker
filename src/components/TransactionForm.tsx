@@ -15,7 +15,7 @@ export default function TransactionForm({ onAdd }: Props) {
   const [categorie, setCategorie] = useState<Categorie>('Alimentation');
   const [date, setDate] = useState(today());
   const [error, setError] = useState('');
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ export default function TransactionForm({ onAdd }: Props) {
     setType('depense');
     setCategorie('Alimentation');
     setDate(today());
-    setOpen(false);
+    // on garde le formulaire ouvert pour enchaîner les saisies
   };
 
   return (
