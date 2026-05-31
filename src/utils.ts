@@ -11,7 +11,7 @@ export const CATEGORIES: Categorie[] = [
 ];
 
 export const formatEur = (amount: number): string =>
-  new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(amount);
+  new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'MAD' }).format(amount);
 
 export const formatMonthLabel = (yearMonth: string): string => {
   const [year, month] = yearMonth.split('-');
@@ -121,7 +121,7 @@ export const SAMPLE_TRANSACTIONS: Transaction[] = [
 ];
 
 export function exportCSV(transactions: Transaction[]): void {
-  const headers = ['Date', 'Libellé', 'Type', 'Catégorie', 'Montant (€)'];
+  const headers = ['Date', 'Libellé', 'Type', 'Catégorie', 'Montant (MAD)'];
   const rows = transactions.map((t) => [
     t.date,
     `"${t.libelle.replace(/"/g, '""')}"`,

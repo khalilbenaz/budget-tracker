@@ -105,7 +105,7 @@ export default function TransactionForm({ onAdd }: Props) {
             {/* Montant */}
             <div>
               <label htmlFor="montant" className="block text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">
-                Montant (€)
+                Montant (MAD)
               </label>
               <input
                 id="montant"
