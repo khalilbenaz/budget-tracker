@@ -62,9 +62,9 @@ export default function TransactionList({ transactions, onDelete }: Props) {
             </div>
 
             {/* Montant + badge */}
-            <div className="flex flex-col items-end gap-1">
+            <div className="flex flex-col items-end gap-1 flex-shrink-0">
               <span
-                className={`text-sm font-bold ${t.type === 'revenu' ? 'text-emerald-600' : 'text-rose-500'}`}
+                className={`text-sm font-bold whitespace-nowrap tabular-nums ${t.type === 'revenu' ? 'text-emerald-600' : 'text-rose-500'}`}
               >
                 {t.type === 'revenu' ? '+' : '-'}{formatEur(t.montant)}
               </span>
@@ -83,7 +83,7 @@ export default function TransactionList({ transactions, onDelete }: Props) {
             <button
               onClick={() => onDelete(t.id)}
               aria-label={`Supprimer "${t.libelle}"`}
-              className="flex-shrink-0 ml-2 w-7 h-7 flex items-center justify-center rounded-lg text-slate-300 hover:text-rose-500 hover:bg-rose-50 transition-colors"
+              className="flex-shrink-0 ml-1 w-7 h-7 flex items-center justify-center rounded-lg text-slate-300 hover:text-rose-500 hover:bg-rose-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

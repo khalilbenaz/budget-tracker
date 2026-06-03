@@ -53,8 +53,9 @@ export default function CategoryChart({ transactions }: Props) {
 
   let cumulPct = 0;
   const slices = entries.map((e) => {
-    const offset = circumference * (1 - cumulPct / 100);
     const dash = (e.pct / 100) * circumference;
+    // Décalage négatif = position de départ cumulée (sens horaire depuis le haut)
+    const offset = -(cumulPct / 100) * circumference;
     cumulPct += e.pct;
     return { ...e, offset, dash };
   });
@@ -88,9 +89,9 @@ export default function CategoryChart({ transactions }: Props) {
             </g>
           </svg>
           {/* Label centre */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-3 text-center">
             <span className="text-xs text-slate-400 font-medium">Total</span>
-            <span className="text-sm font-bold text-slate-700 leading-tight">{formatEur(total)}</span>
+            <span className="text-sm font-bold text-slate-700 leading-tight tabular-nums">{formatEur(total)}</span>
           </div>
         </div>
 
@@ -99,11 +100,11 @@ export default function CategoryChart({ transactions }: Props) {
           {entries.map((e) => (
             <div key={e.cat}>
               <div className="flex items-center justify-between mb-1">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 min-w-0">
                   <span className="w-2.5 h-2.5 rounded-sm flex-shrink-0" style={{ background: e.color }} />
-                  <span className="text-xs font-medium text-slate-600">{e.cat}</span>
+                  <span className="text-xs font-medium text-slate-600 truncate">{e.cat}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-500">
+                <div className="flex items-center gap-2 text-xs text-slate-500 flex-shrink-0 whitespace-nowrap tabular-nums">
                   <span>{formatEur(e.val)}</span>
                   <span className="font-semibold text-slate-700">{e.pct.toFixed(0)}%</span>
                 </div>

@@ -37,7 +37,8 @@ export default function TransactionForm({ onAdd }: Props) {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-slate-100">
       <button
-        className="w-full flex items-center justify-between px-5 py-4 text-left"
+        type="button"
+        className="w-full flex items-center justify-between px-5 py-4 text-left rounded-2xl hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 transition-colors"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
@@ -72,14 +73,16 @@ export default function TransactionForm({ onAdd }: Props) {
               <button
                 type="button"
                 onClick={() => setType('depense')}
-                className={`px-5 py-2 text-sm font-medium transition-colors ${type === 'depense' ? 'bg-rose-500 text-white' : 'bg-white text-slate-600 hover:bg-slate-50'}`}
+                aria-pressed={type === 'depense'}
+                className={`px-5 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-rose-400 ${type === 'depense' ? 'bg-rose-500 text-white' : 'bg-white text-slate-600 hover:bg-slate-50'}`}
               >
                 Dépense
               </button>
               <button
                 type="button"
                 onClick={() => setType('revenu')}
-                className={`px-5 py-2 text-sm font-medium transition-colors ${type === 'revenu' ? 'bg-emerald-500 text-white' : 'bg-white text-slate-600 hover:bg-slate-50'}`}
+                aria-pressed={type === 'revenu'}
+                className={`px-5 py-2 text-sm font-medium transition-colors border-l border-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-400 ${type === 'revenu' ? 'bg-emerald-500 text-white' : 'bg-white text-slate-600 hover:bg-slate-50'}`}
               >
                 Revenu
               </button>
@@ -153,7 +156,7 @@ export default function TransactionForm({ onAdd }: Props) {
 
           <button
             type="submit"
-            className="mt-5 w-full bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
+            className="mt-5 w-full bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2"
           >
             Ajouter
           </button>

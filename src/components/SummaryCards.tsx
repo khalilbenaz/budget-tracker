@@ -25,9 +25,9 @@ export default function SummaryCards({ transactions }: Props) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
           </svg>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">Revenus</p>
-          <p className="text-xl font-bold text-emerald-600 mt-0.5">{formatEur(totalRevenus)}</p>
+          <p className="text-xl font-bold text-emerald-600 mt-0.5 truncate tabular-nums">{formatEur(totalRevenus)}</p>
         </div>
       </div>
 
@@ -38,9 +38,9 @@ export default function SummaryCards({ transactions }: Props) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
           </svg>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">Dépenses</p>
-          <p className="text-xl font-bold text-rose-500 mt-0.5">{formatEur(totalDepenses)}</p>
+          <p className="text-xl font-bold text-rose-500 mt-0.5 truncate tabular-nums">{formatEur(totalDepenses)}</p>
         </div>
       </div>
 
@@ -51,9 +51,9 @@ export default function SummaryCards({ transactions }: Props) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
           </svg>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">Solde net</p>
-          <p className={`text-xl font-bold mt-0.5 ${solde >= 0 ? 'text-blue-600' : 'text-orange-500'}`}>{formatEur(solde)}</p>
+          <p className={`text-xl font-bold mt-0.5 truncate tabular-nums ${solde >= 0 ? 'text-blue-600' : 'text-orange-500'}`}>{formatEur(solde)}</p>
         </div>
       </div>
     </div>
